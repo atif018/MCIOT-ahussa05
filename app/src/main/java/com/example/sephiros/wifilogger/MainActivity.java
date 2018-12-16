@@ -17,14 +17,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // This method will be used when the start/stop logging button is pressed.
+    // Used https://developer.android.com/reference/android/widget/Button as a reference
 
     public void startLog(View view) {
+
+        final Button logButton = findViewById(R.id.logging_button); // Create Button object using the logging_button state attributes
+        String logButtonStatus = logButton.getText().toString(); // Returns what text the logButton object has when the button is clicked, converts to a string and then stores in logButtonStatus
+        if (logButtonStatus.equals(startLog)) { // Checks if the text in logButtonStatus equals "Start Logging" and, if it is, changes the text to "Stop Logging" for when the user wants to stop
+            logButton.setText(stopLog);
+        } else { // If the text in logButtonStatus is not "Start Logging", then the text is changed to the string in startLog.
+            logButton.setText(startLog);
+        }
 
     }
 
     // This method will be used when the Settings button is pressed.
 
     public void checkSettings(View view) {
+
+        final Button setButton = findViewById(R.id.settings_button);
 
     }
     
