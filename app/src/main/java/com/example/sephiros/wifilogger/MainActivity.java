@@ -8,7 +8,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     String stopLog = "Stop Logging";
-    String startLog = "Start Logging";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
