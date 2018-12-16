@@ -15,5 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    // This method will be used when the start/stop logging button is pressed.
+
+    public void startLog(View view) {
+
+    }
+
+    // This method will be used when the Settings button is pressed.
+
+    public void checkSettings(View view) {
+
+    }
     
 }
