@@ -7,7 +7,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    String stopLog = "Stop Logging";
+    String stopLog = "Stop Logging"; // Use this string for setting text on the Logging button
+    String startLog = "Start Logging"; // Use this string for setting text on the Logging button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

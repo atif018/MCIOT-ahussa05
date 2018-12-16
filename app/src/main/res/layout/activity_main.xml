@@ -7,10 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:text="Start Logging" />
+    <!-- First button shows Logging text and this will start or stop logging
+    Layout width and height wrap the button to the width and height of the text -->
 
     <Button
-        android:text="Settings" />
+        android:text="Start Logging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Second button shows Settings text which will go to second activity
+    Layout width and height wrap the button to the width and height of the text -->
+
+    <Button
+        android:text="Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
