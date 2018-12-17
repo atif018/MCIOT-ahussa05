@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkSettings(View view) {
 
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
-        startActivity(settingsActivity);
+        startActivity(settingsIntent);
 
     }
     
