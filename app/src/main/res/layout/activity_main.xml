@@ -11,25 +11,25 @@
     because of the simple UI needed for the task -->
 
     <!-- First button shows Logging text and this will start or stop logging
-    Layout width and height wrap the button to the width and height of the text
+    Layout height wraps the button to the height of the text and match_parent extends the width across the screen
     Added ID for button so we can refer to it later
     Added onClick functionality which will execute the startLog method in MainActivity.java -->
 
     <Button
         android:id="@+id/logging_button"
         android:text="Start Logging"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="startLog"/>
 
     <!-- Second button shows Settings text which will go to second activity
-    Layout width and height wrap the button to the width and height of the text
+    Layout height wraps the button to the height of the text and match_parent extends the width across the screen
     Added ID for button so we can refer to it later
     Added onClick functionality which will execute the checkSettings method in MainActivity.java -->
 
     <Button
         android:text="Settings"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/settings_button"
         android:onClick="checkSettings"/>

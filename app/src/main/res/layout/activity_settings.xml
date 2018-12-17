@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:text="Configure Firebase Account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fire_conf_button"
+        android:onClick="fireConfig"/>
+
+    <Button
+        android:text="Configure Frequency of Logging"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/freq_log_button"
+        android:onClick="freqLog"/>
+
+</LinearLayout>
