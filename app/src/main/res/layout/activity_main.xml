@@ -17,10 +17,11 @@
 
     <Button
         android:id="@+id/logging_button"
-        android:text="Start Logging"
+        android:text="@string/logStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="startLog"/>
+        android:onClick="startLog"
+        android:layout_margin="32dp" />
 
     <!-- Second button shows Settings text which will go to second activity
     Layout height wraps the button to the height of the text and match_parent extends the width across the screen
@@ -28,10 +29,11 @@
     Added onClick functionality which will execute the checkSettings method in MainActivity.java -->
 
     <Button
-        android:text="Settings"
+        android:text="@string/goSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/settings_button"
-        android:onClick="checkSettings"/>
+        android:onClick="checkSettings"
+        android:layout_margin="32dp" />
 
 </LinearLayout>

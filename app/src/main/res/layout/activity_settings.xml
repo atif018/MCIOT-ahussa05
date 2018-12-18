@@ -8,17 +8,19 @@
     android:orientation="vertical">
 
     <Button
-        android:text="Configure Firebase Account"
+        android:text="@string/confFire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fire_conf_button"
-        android:onClick="fireConfig"/>
+        android:onClick="fireConfig"
+        android:layout_margin="32dp" />
 
     <Button
-        android:text="Configure Frequency of Logging"
+        android:text="@string/freFire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/freq_log_button"
-        android:onClick="freqLog"/>
+        android:onClick="freqLog"
+        android:layout_margin="32dp" />
 
 </LinearLayout>

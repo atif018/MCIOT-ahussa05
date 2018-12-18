@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WiFiLogger</string>
+    <string name="logStart">Start Logging</string>
+    <string name="logEnd">Find an image near you</string>
+    <string name="goSettings">Settings</string>
+    <string name="confFire">Configure Firebase Account</string>
+    <string name="freFire">Configure Frequency of Logging</string>
 </resources>
