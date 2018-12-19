@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sephiros.wifilogger">
 
+    // https://developer.android.com/guide/topics/permissions/overview used as a reference as
+    // well as https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> // Permission to access precise location
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> //Permission to access rough location
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> // Permission to access WiFi network information
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
