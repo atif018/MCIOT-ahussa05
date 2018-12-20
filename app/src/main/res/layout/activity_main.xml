@@ -10,18 +10,31 @@
     vertically rather than horizontally. Also, we're using a LinearLayout instead of Relative Layout
     because of the simple UI needed for the task -->
 
+    <TextView
+        android:text="Hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scannedWifi" />
+
     <!-- First button shows Logging text and this will start or stop logging
     Layout height wraps the button to the height of the text and match_parent extends the width across the screen
     Added ID for button so we can refer to it later
     Added onClick functionality which will execute the startLog method in MainActivity.java -->
 
     <Button
+        android:id="@+id/scanWifi_button"
+        android:text="Start the Scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp" />
+
+    <Button
         android:id="@+id/logging_button"
         android:text="@string/logStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="startLog"
-        android:layout_margin="32dp" />
+        android:layout_margin="32dp"
+        android:onClick="logStart"/>
 
     <!-- Second button shows Settings text which will go to second activity
     Layout height wraps the button to the height of the text and match_parent extends the width across the screen
