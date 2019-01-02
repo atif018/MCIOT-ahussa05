@@ -2,4 +2,6 @@
     <string name="app_name">WiFiLogger</string>
     <string name="confFire">Configure Firebase Account</string>
     <string name="freFire">Configure Frequency of Logging</string>
+    <string name="apStatus">Number of APs available: </string>
+    <string name="startingLog">Start Logging</string>
 </resources>

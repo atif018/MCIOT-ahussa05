@@ -3,63 +3,61 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent" >
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".MainActivity"
-            android:orientation="vertical" > <!-- We want a vertical layout so the buttons line up
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical" > <!-- We want a vertical layout so the buttons line up
             vertically rather than horizontally. Also, we're using a LinearLayout instead of Relative Layout
             because of the simple UI needed for the task -->
 
-            <!-- First button shows Logging text and this will start or stop logging
-            Layout height wraps the button to the height of the text and match_parent extends the width across the screen
-            Added ID for button so we can refer to it later
-            Added onClick functionality which will execute the startLog method in MainActivity.java -->
+        <!-- First button shows Logging text and this will start or stop logging
+        Layout height wraps the button to the height of the text and match_parent extends the width across the screen
+        Added ID for button so we can refer to it later -->
 
-            <Button
-                android:id="@+id/startLogging_button"
-                android:text="Start Logging"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="32dp" />
+        <Button
+            android:id="@+id/startLogging_button"
+            android:text="@string/startingLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp" />
 
-            <!-- Second button shows Settings text which will go to second activity
-            Layout height wraps the button to the height of the text and match_parent extends the width across the screen
-            Added ID for button so we can refer to it later
-            Added onClick functionality which will execute the checkSettings method in MainActivity.java -->
+        <!-- Second button shows Firebase Configure text which will go to second activity (Online)
+        Layout height wraps the button to the height of the text and match_parent extends the width across the screen
+        Added ID for button so we can refer to it later
+        Added onClick functionality which will execute the fireConfig method in MainActivity.java
+        Also gave it a margin of 32dp -->
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/confFire"
-                android:id="@+id/fire_conf_button"
-                android:onClick="fireConfig"
-                android:layout_margin="32dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confFire"
+            android:id="@+id/fire_conf_button"
+            android:onClick="fireConfig"
+            android:layout_margin="32dp" />
 
-            <Button
-                android:text="@string/freFire"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/freq_log_button"
-                android:onClick="freqLog"
-                android:layout_margin="32dp" />
+        <Button
+            android:text="@string/freFire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/freq_log_button"
+            android:onClick="freqLog"
+            android:layout_margin="32dp" />
 
-            <!--<WebView
-                android:id="@+id/webview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />-->
+        <!-- Same as the previous buttons except that this is a TextView so that the number of available
+         APs can be shown. Using gravity centres the TextView and Weight allows it to be more visible when
+          being displayed -->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ap_text_view"
-                android:text="Number of APs available: "
-                android:layout_gravity="center"
-                android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ap_text_view"
+            android:text="@string/apStatus"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
 
-        </LinearLayout>
+    </LinearLayout>
 </ScrollView>
