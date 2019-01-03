@@ -39,13 +39,19 @@
             android:onClick="fireConfig"
             android:layout_margin="32dp" />
 
-        <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/freFire"
+            android:layout_gravity="center" />
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/freq_log_button"
             android:onClick="freqLog"
-            android:layout_margin="32dp" />
+            android:layout_margin="32dp"
+            android:inputType="number"/>
 
         <!-- Same as the previous buttons except that this is a TextView so that the number of available
          APs can be shown. Using gravity centres the TextView and Weight allows it to be more visible when

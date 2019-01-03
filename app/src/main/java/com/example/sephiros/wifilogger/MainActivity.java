@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         removeDataFromDatabase(); /* Copyright to Mateusz L. in the link:
         https://stackoverflow.com/questions/42182389/how-to-remove-all-data-from-a-firebase-database
         who provided a solution for an easy way to delete all data from the Firebase database. It was
@@ -67,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
         https://stackoverflow.com/questions/39455722/android-wifi-scan-broadcastreceiver-for-scan-results-available-action-not-gett
         for a compact and easy way to request permissions from the user which has been used below and modified to incorporate extra permissions */
 
-        String[] PERMS_INITIAL={
+        String[] PERMS_INITIAL={ // Declare array of permissions
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.CHANGE_WIFI_STATE,
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.INTERNET,
         };
-        ActivityCompat.requestPermissions(this, PERMS_INITIAL, 127);
+        ActivityCompat.requestPermissions(this, PERMS_INITIAL, 127); // Request permissions
 
         // For Button mBeginLog, used https://developer.android.com/reference/android/widget/Button as a guide and for example code
 
@@ -280,10 +282,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /* The method below uses the EditText field in activity_main.xml file to extract the frequency of logging entered by the User
-    and to use that to modify the frequency of the scan in the OnCreate method above */
+    and to use that to modify the frequency of the scan in the OnCreate method above. I used https://developer.android.com/reference/android/widget/EditText
+     as a guide and for some */
 
     public void freqLog(View view) {
-
+        EditText editConf = (EditText) findViewById(R.id.freq_log_button); // Ran out of time to incorporate frequency of logging
     }
 
 }
