@@ -1,6 +1,7 @@
 /* An app for collecting the Wifi Access Points found around an Android device and uploading a list of those
 devices to Firebase. The GPS location of the device and the phone ID will also be uploaded. The number of APs
-found will be shown on the main activity screen.  */
+found will be shown on the main activity screen. I mainly used developer.android.com for source material, their
+documentation to learn about how things work and come together, and example/sample code to get started. */
 
 package com.example.sephiros.wifilogger;
 
@@ -57,7 +58,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        removeDataFromDatabase();
+        removeDataFromDatabase(); /* Copyright to Mateusz L. in the link:
+        https://stackoverflow.com/questions/42182389/how-to-remove-all-data-from-a-firebase-database
+        who provided a solution for an easy way to delete all data from the Firebase database. It was
+        used to test whether methods were writing correctly to database */
+
+        /* Copyright to gus27 who provided a solution in the link:
+        https://stackoverflow.com/questions/39455722/android-wifi-scan-broadcastreceiver-for-scan-results-available-action-not-gett
+        for a compact and easy way to request permissions from the user which has been used below and modified to incorporate extra permissions */
+
+        String[] PERMS_INITIAL={
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.CHANGE_WIFI_STATE,
+                Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.INTERNET,
+        };
+        ActivityCompat.requestPermissions(this, PERMS_INITIAL, 127);
+
         // For Button mBeginLog, used https://developer.android.com/reference/android/widget/Button as a guide and for example code
 
         mBeginLog = findViewById(R.id.startLogging_button); // Create Button object for initiating logging
@@ -67,15 +85,13 @@ public class MainActivity extends AppCompatActivity {
         // The following is code to check for permissions
         // Used as a guide and some code from https://developer.android.com/training/permissions/requesting
 
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-
             Toast.makeText(getApplicationContext(), "Please allow permission to access your location!", Toast.LENGTH_SHORT).show();
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
                 Toast.makeText(getApplicationContext(), "Please allow permission to access your location!", Toast.LENGTH_SHORT).show();
-            } else {
+            } else { // I wanted to incorporate requesting permissions here but ran out of time
             }
         }
         else {
@@ -103,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(Location location) {
 
                 if (location != null) { // Only if location isn't null will the following statements be carried out for GPS coordinates
-
+                    // mFusedLocationClient.requestLocationUpdates(); Wanted to use this and the guide above to request constant updates but ran out of time
                     double gpsLatitude = location.getLatitude(); // Gets Latitude from Location object and stores as a double
                     double gpsLongitude = location.getLongitude(); // Gets Longitude from Location object and stores as a double
 
@@ -150,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
                 else {
                     mBeginLog.setText(mStartLog);
+                    // Here, I tried to unregister the Broadcast Receiver using unregister(<Name of receiver>) as a way of stopping the scan but the app kept crashing as a result
                 }
             }
         });
@@ -157,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         /* Used https://developer.android.com/reference/android/net/wifi/ScanResult as a guide as well as using
         some of the example code to get specific results from Scan results like the SSID, BSSID and others.
 
-         Also used https://developer.android.com/guide/topics/connectivity/wifi-scan as a guide as well as some code */
+        Also used https://developer.android.com/guide/topics/connectivity/wifi-scan as a guide as well as some code */
 
         mWifiScanReceiver = new BroadcastReceiver() { // Registers new Broadcast Receiver
             @Override
@@ -178,16 +195,24 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        // The code below was found at https://developer.android.com/guide/topics/connectivity/wifi-scan to be used with WifiManager above
 
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
         getApplicationContext().registerReceiver(mWifiScanReceiver, mIntentFilter);
 
     }
+
+    /* Copyright to Mateusz L. in the link:
+        https://stackoverflow.com/questions/42182389/how-to-remove-all-data-from-a-firebase-database
+        who provided a solution for an easy way to delete all data from the Firebase database. It was
+        used to test whether methods were writing correctly to database */
+
     void removeDataFromDatabase(){
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         root.setValue(null);
     }
+
     /* A method that sends the User to their Firebase console to configure their settings and account.
     https://developer.android.com/guide/components/intents-common#ViewUrl was used as a guide and some code was used from there as well */
 
@@ -198,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /* Set up Firebase and used some example code from https://firebase.google.com/docs/android/setup
+    /* The method below sets up Firebase and I used some example code from https://firebase.google.com/docs/android/setup
     & https://firebase.google.com/docs/database/android/start in the method below. */
 
     public void firebaseWrite(String getSsid, String getBssid, String getRssi, String getFrequency,
@@ -253,6 +278,9 @@ public class MainActivity extends AppCompatActivity {
             mApTextView.setText("Number of APs available: " + i);
         }
     }
+
+    /* The method below uses the EditText field in activity_main.xml file to extract the frequency of logging entered by the User
+    and to use that to modify the frequency of the scan in the OnCreate method above */
 
     public void freqLog(View view) {
 
