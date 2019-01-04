@@ -60,11 +60,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        removeDataFromDatabase(); /* Copyright to Mateusz L. in the link:
-        https://stackoverflow.com/questions/42182389/how-to-remove-all-data-from-a-firebase-database
-        who provided a solution for an easy way to delete all data from the Firebase database. It was
-        used to test whether methods were writing correctly to database */
-
         /* Copyright to gus27 who provided a solution in the link:
         https://stackoverflow.com/questions/39455722/android-wifi-scan-broadcastreceiver-for-scan-results-available-action-not-gett
         for a compact and easy way to request permissions from the user which has been used below and modified to incorporate extra permissions */
@@ -203,16 +198,6 @@ public class MainActivity extends AppCompatActivity {
         mIntentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
         getApplicationContext().registerReceiver(mWifiScanReceiver, mIntentFilter);
 
-    }
-
-    /* Copyright to Mateusz L. in the link:
-        https://stackoverflow.com/questions/42182389/how-to-remove-all-data-from-a-firebase-database
-        who provided a solution for an easy way to delete all data from the Firebase database. It was
-        used to test whether methods were writing correctly to database */
-
-    void removeDataFromDatabase(){
-        DatabaseReference root = FirebaseDatabase.getInstance().getReference();
-        root.setValue(null);
     }
 
     /* A method that sends the User to their Firebase console to configure their settings and account.
