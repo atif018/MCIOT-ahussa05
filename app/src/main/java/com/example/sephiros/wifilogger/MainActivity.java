@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /* The method below sets up Firebase and I used some example code from https://firebase.google.com/docs/android/setup
-    & https://firebase.google.com/docs/database/android/start in the method below. */
+    & https://firebase.google.com/docs/database/android/start */
 
     public void firebaseWrite(String getSsid, String getBssid, String getRssi, String getFrequency,
                               String mGpsLocation, String mPhoneId) {
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* The method below uses the EditText field in activity_main.xml file to extract the frequency of logging entered by the User
     and to use that to modify the frequency of the scan in the OnCreate method above. I used https://developer.android.com/reference/android/widget/EditText
-     as a guide and for some */
+     as a guide and for some code */
 
     public void freqLog(View view) {
         EditText editConf = (EditText) findViewById(R.id.freq_log_button); // Ran out of time to incorporate frequency of logging

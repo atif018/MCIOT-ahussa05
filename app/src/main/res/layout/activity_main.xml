@@ -45,6 +45,10 @@
             android:text="@string/freFire"
             android:layout_gravity="center" />
 
+        <!-- Same as the previous buttons except that this is an EditText where you can enter the
+         frequency of logging in seconds. Used https://developer.android.com/reference/android/widget/EditText
+         as a guide -->
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
